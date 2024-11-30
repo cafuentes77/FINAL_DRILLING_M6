@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { createDataFile, getAllDataAnime, updateAnime, deleteAnime } from '../utils/fileUtils.js';
+import { createDataFile, getAllDataAnime, updateAnime, deleteAnime, getAnimeById } from '../utils/fileUtils.js';
 
 export class Anime {
     #id;
@@ -103,11 +103,18 @@ static async delete(id) {
         const anime = await deleteAnime(id, 'animes.json');
         return anime
     }catch (error){
-        throw new Error("Failed to permanently delete user", error);
+        throw new Error("Failed to permanently anime delete ", error);
     }
 }
 
-
+static async getId(id) {
+    try {
+        const anime = await getAnimeById(id,'animes.json')
+        return anime
+    }catch (error){
+        throw new Error("Error getting anime data", error);
+    }
+}
 
 
 }

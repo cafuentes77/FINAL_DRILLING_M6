@@ -60,3 +60,19 @@ export const deleteAnime = async(id, pathData) => {
         throw new Error("We were unable to update the data", error);
     }
 }
+
+export const getAnimeById = async(id, pathData) => {
+    try {
+        const data = await readFile(pathData);
+
+        const dataFound = data.find(dataFound => dataFound.id === id)
+
+        if(!dataFound) throw new Error("We couldnt find the data");
+
+        const dataId = dataFound;
+        return dataId
+
+    }catch (error) {
+        throw new Error("We could not find the data", error);
+    }
+}

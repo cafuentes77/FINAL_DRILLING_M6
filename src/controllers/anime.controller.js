@@ -80,3 +80,22 @@ export const deleteAnime = async (req, res) => {
         });
     }
 }
+
+export const getAnimeById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const animeId = await Anime.getId(id)
+        res.status(200).json({
+            message: 'Anime found successfully',
+            status: 200,
+            data: animeId,
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error getting anime',
+            status: 500,
+            error,
+        });
+    }
+}
