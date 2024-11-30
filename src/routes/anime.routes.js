@@ -1,5 +1,9 @@
-import expres from 'express';
+import { Router } from 'express';
+import { createNewAnime, getAllAnime } from '../controllers/anime.controller.js';
 
-const router = expres.Router();
+const router = Router();
+
+router.post('/animes', createNewAnime)
+router.get('/animes', getAllAnime)
 
 export default router;

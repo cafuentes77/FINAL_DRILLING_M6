@@ -1,0 +1,32 @@
+[
+    {
+        "id": "08726068",
+        "nombre": "Akira",
+        "genero": "Seinen",
+        "autor": "Katsuhiro Otomo"
+    },
+    {
+        "id": "7664203a",
+        "nombre": "Dragon Ball",
+        "genero": "Shonen",
+        "autor": "Akira Toriyama"
+    },
+    {
+        "id": "85fc1247",
+        "nombre": "Sailor Moon",
+        "genero": "Shojo",
+        "autor": "Naoko Takeuchi"
+    },
+    {
+        "id": "3575646b",
+        "nombre": "Naruto",
+        "genero": "Shonen",
+        "autor": "Masashi Kishimoto"
+    },
+    {
+        "id": "a24b3129",
+        "nombre": "Neon Genesis Evangelion",
+        "genero": "Mecha",
+        "autor": "Yoshiyuki Sadamoto"
+    }
+]

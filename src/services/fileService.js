@@ -14,7 +14,7 @@ export const createFile = async (data,pathData) => {
 
         await fs.writeFile(dataFilePath, JSON.stringify(data, null, 4 ), "utf8");
     } catch (error) {
-        throw new Error("Error al crear el archivo", error) 
+        throw new Error(`Error al crear el archivo ${error}`) 
     }
 };
 
@@ -26,6 +26,6 @@ export const readFile = async (pathData) => {
         return JSON.parse(data);
     } catch (error) {
         console.error(`No pudemos leer el archivo: ${error}`);
-        throw new JsonError("Error al leer el archivo", error); //tiene que retornar null si no se maneja error
+        return null;
     }
 };
