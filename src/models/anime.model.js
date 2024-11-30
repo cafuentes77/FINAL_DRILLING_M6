@@ -80,7 +80,7 @@ static async create(data) {
     }
 }
 
-static async encontrarAnimes() {
+static async findAnimes() {
     try {
         const anime = await getAllDataAnime('animes.json');
         return anime;
