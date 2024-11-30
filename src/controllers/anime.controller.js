@@ -20,13 +20,13 @@ export const createNewAnime = async (req, res) => {
 
 export const getAllAnime = async (req, res) => {
     try {
-        const data = await Anime.findAnimes();
+        const data = await Anime.find();
         if (!data)
             throw new Error("No anime found");
         res.status(200).json({
-        message: "Animes found successfully",
-        status: 200,
-        data,
+            message: "Animes found successfully",
+            status: 200,
+            data,
         });
     } catch (error) {
         res.status(404).json({
@@ -34,6 +34,29 @@ export const getAllAnime = async (req, res) => {
             status: 404,
             error,
 
+        })
+    }
+}
+
+export const updateAnime = async (req, res) => {
+
+    try {
+        const id  = req.params.id;
+        const data = req.body;
+
+        const animeUpdate = await Anime.update(id, data);
+
+        res.status(201).json({
+            message: "Update Anime",
+            status: 201,
+            oldData: animeUpdate,
+            newData: data,
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Error updating anime data",
+            status: 500,
+            error,
         })
     }
 }

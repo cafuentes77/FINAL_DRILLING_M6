@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { createDataFile, getAllDataAnime } from '../utils/fileUtils.js';
+import { createDataFile, getAllDataAnime, updateAnime } from '../utils/fileUtils.js';
 
 export class Anime {
     #id;
@@ -80,13 +80,24 @@ static async create(data) {
     }
 }
 
-static async findAnimes() {
+static async find() {
     try {
         const anime = await getAllDataAnime('animes.json');
         return anime;
     } catch (error) {
-        throw new Error('Error al obtener los datos de las películas', error);
+        throw new Error('Error getting anime data', error);
     }
 }
+
+static async update(id, data) {
+    try {
+        const anime = await updateAnime(id, data, 'Animes.json');
+        return anime;
+    } catch (error) {
+        throw new Error('Error updating anime data', error);
+    }
+}
+
+
 
 }
