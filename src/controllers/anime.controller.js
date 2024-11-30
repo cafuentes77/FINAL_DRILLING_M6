@@ -60,3 +60,23 @@ export const updateAnime = async (req, res) => {
         })
     }
 }
+
+export const deleteAnime = async (req, res) => {
+    try {
+        const { id } = req.params
+
+        const animeDelete = await Anime.delete(id)
+
+        res.status(200).json({
+            message: `user ${id} successfully deleted`,
+            status: 200,
+            datadeleted: animeDelete
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error deleting user',
+            status: 500,
+            error,
+        });
+    }
+}
