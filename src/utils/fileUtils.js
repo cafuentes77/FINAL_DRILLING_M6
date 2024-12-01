@@ -76,3 +76,20 @@ export const getAnimeById = async(id, pathData) => {
         throw new Error("We could not find the data", error);
     }
 }
+
+export const getAnimeByName = async (nombre, pathData) => {
+    try {
+        const data = await readFile(pathData);
+
+        const nameNormalized = nombre.toLocaleLowerCase().replace(/\s+/g, '')
+
+        const animeName = data.filter(
+            (anime) =>
+                anime.nombre.toLocaleLowerCase().replace(/\s+/g, '') === nameNormalized
+        );
+        return animeName
+    } catch (error) {
+        throw new Error("We couldnt find the data for the name of the anime", error)
+    }
+
+}

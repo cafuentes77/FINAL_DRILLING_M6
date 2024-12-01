@@ -6,15 +6,15 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export const createFile = async (data,pathData) => {
+export const createFile = async (data, pathData) => {
     try {
         const dataFilePath = path.join(__dirname, `../data/${pathData}`);
 
-        await fs.mkdir(path.dirname(dataFilePath), {recursive: true});
+        await fs.mkdir(path.dirname(dataFilePath), { recursive: true });
 
-        await fs.writeFile(dataFilePath, JSON.stringify(data, null, 4 ), "utf8");
+        await fs.writeFile(dataFilePath, JSON.stringify(data, null, 4), "utf8");
     } catch (error) {
-        throw new Error(`Error al crear el archivo ${error}`) 
+        throw new Error(`Error al crear el archivo ${error}`)
     }
 };
 
