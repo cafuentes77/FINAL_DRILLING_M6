@@ -14,3 +14,5 @@ app.listen(PORT, () => {
     console.log(`El Servidor está corriendo en el puerto ${PORT}`);
 })
 
+export default app;
+
